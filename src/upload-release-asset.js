@@ -12,7 +12,11 @@ async function run() {
     const assetPath = core.getInput('asset_path', { required: true });
     const assetName = core.getInput('asset_name', { required: true });
     const assetContentType = core.getInput('asset_content_type', { required: true });
-
+    fs.readdir(".", (err, files) => {
+      files.forEach(file => {
+        console.log(file);
+      });
+    });
     // Determine content-length for header to upload asset
     const contentLength = filePath => fs.statSync(filePath).size;
 
